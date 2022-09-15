@@ -2,13 +2,23 @@ export class Car {
 
   static Directions = ['N', 'E', 'S', 'W'];
 
+  static ActionCosts = {
+    go: 1,
+    turn_left: 1,
+    turn_right: 1,
+    enhance_sensors: 5,
+    new_car: 10
+  }
+
   constructor(game, x, y) {
     this.game = game;
+    this.player = game.player;
     this.x = x;
     this.y = y;
     this.direction_index = 0;
+    this.sensor_level = 0;
     this.current_space = game.grid.get(x, y);
-    this.sensor_level = 0; 
+    this.active = true;
     this.sense();
   }
 
@@ -45,6 +55,10 @@ export class Car {
     this.set_space();
   }
 
+  new_car() {
+    this.game.new_car(this.x, this.y);
+  }
+
   enhance_sensors() {
     this.sensor_level += 1;
     this.sense();
@@ -72,9 +86,16 @@ export class Car {
   }
 
   take_action(action) {
-    this[action]();
-    this.sense();
-    this.game.renderer.draw();
+    var cost = Car.ActionCosts[action];
+    if(cost) {
+      this.player.score += cost;
+      this[action]();
+      this.sense();
+      this.game.next_car();
+      this.game.draw();
+    } else {
+      console.log(`No action named ${action} was found`)
+    }
   }
 
   set_space() {

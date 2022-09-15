@@ -21,9 +21,25 @@ table.fog_board > tr > td.fog {
   background-color: #aaaaaa;
 }
 
+table.fog_board > tr > td > div {
+  position: relative;
+}
+
 .car {
   width: 20px;
   height: 20px;
+  position: absolute;
+  top: -10px;
+}
+
+.car.active {
+  filter: brightness(100%);
+  z-index: 1;
+}
+
+.car.inactive {
+  filter: brightness(75%);
+  z-index: 0;
 }
 
 .car.N {

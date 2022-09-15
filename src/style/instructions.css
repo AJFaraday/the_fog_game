@@ -1,0 +1,35 @@
+div#instructions {
+  background-color: lightgrey;
+  padding: 20px;
+  border-radius: 20px;
+  width: 350px;
+}
+
+div#instructions > h1 {
+  line-height: 0;
+}
+
+div#instructions > h2 {
+  line-height: 0;
+  padding-top: 10px;
+}
+
+div#instructions > dl {
+  margin-block-end: 0;
+}
+  
+
+div#instructions > dl > dd {
+  display: inline;
+  margin: 0;
+}
+
+div#instructions > dl > dd:after{
+  display: block;
+  content: '';
+}
+
+div#instructions > dl > dt{
+  display: inline-block;
+  min-width: 100px;
+}

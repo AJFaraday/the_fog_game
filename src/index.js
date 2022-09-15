@@ -1,4 +1,5 @@
-import "./style/grid.css"
+import "./style/grid.css";
+import "./style/instructions.css";
 
 import {Game} from './models/game.js';
 import { HtmlRenderer } from './renderers/html_renderer.js';

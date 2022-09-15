@@ -10,12 +10,12 @@ export class Car {
     new_car: 10
   }
 
-  constructor(game, x, y) {
+  constructor(game, x, y, direction_index) {
     this.game = game;
     this.player = game.player;
     this.x = x;
     this.y = y;
-    this.direction_index = 0;
+    this.direction_index = direction_index;
     this.sensor_level = 0;
     this.current_space = game.grid.get(x, y);
     this.active = true;
@@ -56,7 +56,8 @@ export class Car {
   }
 
   new_car() {
-    this.game.new_car(this.x, this.y);
+    this.game.new_car(this.x, this.y, this.direction_index);
+    this.game.set_car(this.game.cars.length)
   }
 
   enhance_sensors() {
@@ -91,7 +92,6 @@ export class Car {
       this.player.score += cost;
       this[action]();
       this.sense();
-      this.game.next_car();
       this.game.draw();
     } else {
       console.log(`No action named ${action} was found`)

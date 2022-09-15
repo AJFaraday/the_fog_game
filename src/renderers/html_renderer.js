@@ -8,6 +8,9 @@ export class HtmlRenderer{
 
   draw() {
     this.div.innerHTML = "";
+
+    this.draw_score();
+
     var table = Utils.build_element('table', {class: 'fog_board'});
     this.game.grid.rows.forEach((row) => {
       var html_row = Utils.build_element('tr');
@@ -28,8 +31,6 @@ export class HtmlRenderer{
       table.append(html_row);
     });
     this.div.append(table);
-
-    this.draw_score();
   }
 
   draw_score() {

@@ -19,3 +19,11 @@ var key_handler = new KeyHandler(game);
 
 window.game = game;
 window.key_handler = key_handler;
+
+// Click on instructions to act
+import { Application } from "@hotwired/stimulus"
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+
+window.Stimulus = Application.start()
+const context = require.context("./controllers", true, /\.js$/)
+Stimulus.load(definitionsFromContext(context))

@@ -10,14 +10,14 @@ export class Car {
     new_car: 10
   }
 
-  constructor(game, x, y, direction_index) {
-    this.game = game;
-    this.player = game.player;
+  constructor(player, x, y, direction_index) {
+    this.player = player;
+    this.game = player.game;
     this.x = x;
     this.y = y;
     this.direction_index = direction_index;
     this.sensor_level = 0;
-    this.current_space = game.grid.get(x, y);
+    this.current_space = this.game.grid.get(x, y);
     this.active = true;
     this.sense();
   }
@@ -56,8 +56,8 @@ export class Car {
   }
 
   new_car() {
-    this.game.new_car(this.x, this.y, this.direction_index);
-    this.game.set_car(this.game.cars.length)
+    this.player.new_car(this.x, this.y, this.direction_index);
+    this.player.set_car(this.player.cars.length)
   }
 
   enhance_sensors() {

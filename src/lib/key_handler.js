@@ -1,6 +1,7 @@
 export class KeyHandler {
-  constructor(game) {
-    this.game = game;
+  constructor(player) {
+    this.player = player;
+    this.game = player.game;
     this.init_key_events();
   }
 
@@ -14,7 +15,7 @@ export class KeyHandler {
   }
 
   take_action(key_code) {
-    const car = this.game.active_car;
+    const car = this.player.active_car;
     const digit_match = key_code.match(/Digit([0-9])/)
     switch(key_code) {
       case 'ArrowUp':
@@ -33,15 +34,15 @@ export class KeyHandler {
         car.take_action('new_car');
         break;
       case 'Comma':
-        this.game.previous_car();
+        this.player.previous_car();
         this.game.draw();
         break;
       case 'Period':
-        this.game.next_car();
+        this.player.next_car();
         this.game.draw();
         break;x
       case key_code.match(/Digit([0-9])/)?.input:
-        this.game.set_car(
+        this.player.set_car(
           parseInt(digit_match[1])
         );
         this.game.draw();

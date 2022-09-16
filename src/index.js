@@ -8,14 +8,14 @@ import { KeyHandler } from './lib/key_handler.js';
 var game = new Game(
   {
     renderer: HtmlRenderer,
-    height: 11,
-    width: 11,
-    start_x: 5,
-    start_y: 5
+    height: 15,
+    width: 15,
+    start_x: 7,
+    start_y: 7
   }  
 );
 
-var key_handler = new KeyHandler(game);
+var key_handler = new KeyHandler(game.player);
 
 window.game = game;
 window.key_handler = key_handler;

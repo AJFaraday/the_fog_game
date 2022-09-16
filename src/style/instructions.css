@@ -22,6 +22,7 @@ div#instructions > dl {
 div#instructions > dl > dd {
   display: inline;
   margin: 0;
+  user-select: none;
 }
 
 div#instructions > dl > dd:after{
@@ -32,4 +33,5 @@ div#instructions > dl > dd:after{
 div#instructions > dl > dt{
   display: inline-block;
   min-width: 100px;
+  user-select: none;
 }

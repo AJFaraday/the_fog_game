@@ -1,4 +1,4 @@
-export class TurnManager {
+export class CarManager {
 
   constructor(game) {
     this.game = game;

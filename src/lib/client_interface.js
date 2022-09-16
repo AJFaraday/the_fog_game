@@ -1,4 +1,4 @@
-import { PlayerInterface } from "../interfaces/player_interface";
+import { Interfaces } from '../interfaces.js';
 
 export class ClientInterface {
   #player;
@@ -6,24 +6,22 @@ export class ClientInterface {
   #grid;
 
   constructor(player) {
-    this.#player = player;
-    this.#game = this.#player.game;
-    this.#grid = this.#game.grid;
-
-    this.player = new PlayerInterface(this.#player);
+    this.player = new Interfaces.PlayerInterface(player);
+    this.grid = new Interfaces.GridInterface(player.game.grid);
   }
 
   // player data:
-  // score
-  // cars
+  // player.score()
+  // player.cars()
   //   {x: , y:, active:, sensor_range:}
 
   // grid data:
   // height
   // width
-  // expored_spaces
+  // visible_spaces
   // [{x:, y: }, ...]
   // foggy_spaces
+  // spaces
 
   // car data:
   // coord

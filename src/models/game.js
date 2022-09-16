@@ -6,6 +6,7 @@ export class Game {
     this.grid = new Grid(options.height, options.width);
     this.player = new Player(this);
     this.player.new_car(options.start_x, options.start_y, 0);
+    this.player.set_car(1);
     this.renderer = new options.renderer(this);
   }
 

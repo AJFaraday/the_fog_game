@@ -10,15 +10,16 @@ export class Car {
     new_car: 10
   }
 
-  constructor(player, x, y, direction_index) {
+  constructor(player, x, y, index, direction_index) {
     this.player = player;
     this.game = player.game;
     this.x = x;
     this.y = y;
+    this.index = index;
     this.direction_index = direction_index;
     this.sensor_level = 0;
     this.current_space = this.game.grid.get(x, y);
-    this.active = true;
+    this.active = false;
     this.sense();
   }
 
@@ -57,7 +58,6 @@ export class Car {
 
   new_car() {
     this.player.new_car(this.x, this.y, this.direction_index);
-    this.player.set_car(this.player.cars.length)
   }
 
   enhance_sensors() {

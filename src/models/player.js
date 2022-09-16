@@ -7,15 +7,14 @@ export class Player {
     this.game = game;
     this.score = 0;
     this.cars = [];
-    this.active_car = this.cars[0];
     this.car_manager = new CarManager(this)
     this.client_interface = new ClientInterface(this);
   }
 
   new_car(x, y, direction) {
-    const car = new Car(this, x, y, direction);
+    const car = new Car(this, x, y, this.cars.length,  direction);
     this.cars.push(car);
-    this.active_car = car;
+    //this.active_car = car;
     this.game.grid.get(x,y).cars.push(car);
   }
 

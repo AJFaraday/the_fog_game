@@ -8,7 +8,7 @@
   <br clear="both"/>
   <div id="instructions" data-controller="instructions">
     <h1>Instructions</h1>
-    <h2>Driving</h2>
+    <h2>Driving (cost: 1)</h2>
     <dl>
       <dt data-action="click->instructions#test" data-keycode="ArrowUp">Up Arrow</dt>
       <dd>Move car forwards</dd>
@@ -18,16 +18,19 @@
 
       <dt data-action="click->instructions#test" data-keycode="ArrowRight">Right Arrow</dt>
       <dd>Turn car right</dd>
-
-      <dt data-action="click->instructions#test" data-keycode="KeyE">E</dt>
-      <dd>Enhance sensors (Costs 5)</dd>
     </dl>
 
+    <h2>Special actions</h2>
+    <dl>
+      <dt data-action="click->instructions#test" data-keycode="KeyE">E</dt>
+      <dd>Enhance sensors (cost: 5)</dd>
+
+      <dt data-action="click->instructions#test" data-keycode="KeyN">N</dt>
+      <dd>Create new car (cost: 10)</dd>
+    </dl>
+    
     <h2>Cars</h2>
     <dl>
-      <dt data-action="click->instructions#test" data-keycode="KeyN">N</dt>
-      <dd>Create new car (Costs 10)</dd>
-
       <dt data-action="click->instructions#test" data-keycode="Comma">, or &lt;</dt>
       <dd>Previous car</dd>
 

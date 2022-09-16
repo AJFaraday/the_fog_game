@@ -1,5 +1,6 @@
 import {Car} from './car.js';
 import { CarManager } from '../lib/car_manager.js';
+import { ClientInterface } from '../lib/client_interface.js';
 export class Player {
 
   constructor(game) {
@@ -8,6 +9,7 @@ export class Player {
     this.cars = [];
     this.active_car = this.cars[0];
     this.car_manager = new CarManager(this)
+    this.client_interface = new ClientInterface(this);
   }
 
   new_car(x, y, direction) {

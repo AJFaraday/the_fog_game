@@ -19,6 +19,8 @@ var key_handler = new KeyHandler(game.player);
 
 window.game = game;
 window.key_handler = key_handler;
+// TODO get rid of this
+window.api = game.player.client_interface;
 
 // Click on instructions to act
 import { Application } from "@hotwired/stimulus"

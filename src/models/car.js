@@ -6,8 +6,8 @@ export class Car {
     go: 1,
     turn_left: 1,
     turn_right: 1,
-    enhance_sensors: 5,
-    new_car: 10
+    enhance_sensors: 10,
+    new_car: 5
   }
 
   constructor(player, x, y, index, direction_index) {

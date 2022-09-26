@@ -1,37 +1,48 @@
-import { Interfaces } from '../interfaces.js';
-
+import { PlayerInterface } from '../interfaces/player_interface.js';
+import { GridInterface } from '../interfaces/grid_interface.js';
+import { GameInterface } from '../interfaces/game_interface.js';
 export class ClientInterface {
-  #player;
-  #game;
-  #grid;
-
   constructor(player) {
-    this.player = new Interfaces.PlayerInterface(player);
-    this.grid = new Interfaces.GridInterface(player.game.grid);
+    this.player = new PlayerInterface(player, player.game.grid);
+    this.grid = new GridInterface(player.game.grid);
+    this.game = new GameInterface(player.game);
   }
 
-  // player data:
-  // player.score()
-  // player.cars()
-  //   {x: , y:, active:, sensor_range:}
+  // GameInterface
+  // turn
 
-  // grid data:
+  // PlayerInterface:
+  // score
+  // cars
+
+  // GridInterface:
   // height
   // width
-  // visible_spaces
-  // [{x:, y: }, ...]
-  // foggy_spaces
-  // spaces
+  // visible_spaces()
+  // foggy_spaces()
+  // spaces()
+  // rows()
+  // space_at(x, y)
 
-  // car data:
-  // coord
-  // distance_to_n
-  // distance_to_e
-  // distance_to_s
-  // distance_to_w
-  // sensor_range
+  // types:
+  // CarInterface
+    // x
+    // y
+    // sensor_range
+    // direction
+    // distance_to_n()
+    // distance_to_e()
+    // distance_to_s()
+    // distance_to_w()
+    // take_action(action)
+    //
+    // closest_fog?
+  // Space type
+    // x
+    // y
+    // cars
 
-  // actions:
+// actions:
   // go
   // turn_right
   // turn_left

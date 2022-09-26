@@ -1,8 +1,12 @@
+import { CarInterface } from "./car_interface.js";
+
 export class PlayerInterface {
   #player;
+  #grid;
 
-  constructor(player) {
+  constructor(player, grid) {
     this.#player = player;
+    this.#grid = grid;
   }
 
   score() {
@@ -12,12 +16,7 @@ export class PlayerInterface {
   cars() {
     return this.#player.cars.map(
       (car) => {
-        return {
-          x: car.x,
-          y: car.y,
-          current: car.active,
-          sensor_range: car.sensor_level   
-        }
+        return new CarInterface(car, this.#grid);
       }
     );
   }

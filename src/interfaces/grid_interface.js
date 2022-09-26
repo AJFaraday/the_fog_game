@@ -1,17 +1,34 @@
+import { Space } from "../models/space";
+import { CarInterface } from "./car_interface";
+import { SpaceInterface } from "./space_interface";
+
 export class GridInterface {
   #grid;
   #player;
 
   constructor(grid) {
     this.#grid = grid;
+    this.height = this.#grid.height;
+    this.width = this.#grid.width;
   }
 
-  height() {
-    return this.#grid.height;
+  space_at(x, y) {
+    return new SpaceInterface(
+      this.#grid.get(x, y),
+      this.#grid
+    )
   }
 
-  width() {
-    return this.#grid.width;
+  rows() {
+    return this.#grid.rows.map(
+      row => {
+        return row.map(
+          space => {
+            return new SpaceInterface(space, this.#grid);
+          }
+        );
+      }
+    );
   }
 
   spaces() {
@@ -20,21 +37,9 @@ export class GridInterface {
       row => {
         row.forEach(
           space => {
-            const cars = space.cars.map(
-              car => {
-                return {
-                  direction: car.direction(),
-                  sensor_range: car.sensor_level,
-                  index: car.index
-                }
-              }
-            )
-            spaces.push({
-              x: space.x,
-              y: space.y,
-              visible: space.visible,
-              cars: cars
-            });
+            spaces.push(
+              new SpaceInterface(space, this.#grid)
+            );
           }
         )
       }

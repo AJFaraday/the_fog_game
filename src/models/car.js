@@ -92,9 +92,10 @@ export class Car {
       this.player.score += cost;
       this[action]();
       this.sense();
+      this.game.end_turn(this.player);
       this.game.draw();
     } else {
-      console.log(`No action named ${action} was found`)
+      console.log(`No action named ${action} was found`);
     }
   }
 

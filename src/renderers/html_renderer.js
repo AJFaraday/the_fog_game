@@ -10,6 +10,7 @@ export class HtmlRenderer{
     this.div.innerHTML = "";
 
     this.draw_score();
+    this.draw_turn();
 
     var table = Utils.build_element('table', {class: 'fog_board'});
     this.game.grid.rows.forEach((row) => {
@@ -36,6 +37,12 @@ export class HtmlRenderer{
   draw_score() {
     var div = Utils.build_element('div', {class: 'score_display'});
     div.innerHTML = `Score: ${this.game.player.score}`
+    this.div.append(div);
+  }
+
+  draw_turn() {
+    var div = Utils.build_element('div', {class: 'turn_display'});
+    div.innerHTML = `Turn: ${this.game.turn}`
     this.div.append(div);
   }
 

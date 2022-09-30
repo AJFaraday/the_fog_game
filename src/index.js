@@ -1,9 +1,11 @@
 import "./style/grid.css";
 import "./style/instructions.css";
 
-import {Game} from './models/game.js';
+import { Game } from './models/game.js';
 import { HtmlRenderer } from './renderers/html_renderer.js';
 import { KeyHandler } from './lib/key_handler.js';
+
+import Clients from './clients.js';
 
 var game = new Game(
   {
@@ -21,6 +23,7 @@ window.game = game;
 window.key_handler = key_handler;
 // TODO get rid of this
 window.api = game.player.client_interface;
+window.client = new Clients['default/random'](window.api);
 
 // Click on instructions to act
 import { Application } from "@hotwired/stimulus"
